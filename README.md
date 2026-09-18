@@ -52,3 +52,17 @@ Nếu không in, xem queue:
 ```
 lpstat -t
 ```
+
+```
+sudo chmod 755 /usr/lib/cups/backend/usb
+sudo systemctl restart cups
+```
+
+```
+lpinfo -v
+```
+
+Lúc này hy vọng sẽ thấy:
+```
+direct usb://Canon/LBP2900?serial=0000C1E9I1iC
+```
