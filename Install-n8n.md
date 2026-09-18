@@ -1,3 +1,10 @@
+## Thông tin
+JetPack 4.6.6
+Ubuntu 18.04
+Dùng version:3.3 là an toàn hơn với Docker Compose trên Ubuntu 18.04.  
+Docker 20.10.7 ARM64  
+
+## Cài Đặt
 Mình khuyên dùng docker compose, cấu trúc như sau:
 ```
 /home/ubuntu/n8n/
