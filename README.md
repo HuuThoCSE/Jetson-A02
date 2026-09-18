@@ -66,3 +66,16 @@ Lúc này hy vọng sẽ thấy:
 ```
 direct usb://Canon/LBP2900?serial=0000C1E9I1iC
 ```
+
+## Ở trên máy windows
+
+```
+http://192.168.1.15:631/printers/LBP2900
+```
+
+không nên chọn Canon LBP2900 CAPT của Windows. Phần CAPT đã do Jetson xử lý rồi.
+
+```
+Manufacturer: Generic
+Printer: MS Publisher Imagesetter
+```
