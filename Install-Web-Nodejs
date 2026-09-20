@@ -153,3 +153,8 @@ sudo ufw status
 ```
 sudo journalctl -u cloudflared -f
 ```
+
+Bạn sẽ thấy dòng dạng:
+```
+Updated to new configuration
+```
