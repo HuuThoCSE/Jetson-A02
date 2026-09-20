@@ -1,1 +1,127 @@
+# Thông tin thiết bị
+ARM64 (aarch64) + glibc 2.27.
+Docker 20.10.7
+- Chạy dựa trên Docker
 
+# Cài đặt
+Ubuntu 18.04.6
+ARM64 (aarch64)
+glibc 2.27
+
+# Bước 1: tạo project Next.js
+```
+mkdir -p ~/nextjs-jetson
+cd ~/nextjs-jetson
+```
+
+Tạo package.json:
+```
+nano package.json
+```
+
+```
+{
+  "name": "nextjs-jetson",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -H 0.0.0.0",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0"
+  },
+  "dependencies": {
+    "next": "15.5.2",
+    "react": "19.1.1",
+    "react-dom": "19.1.1"
+  }
+}
+```
+
+### Bước 2: tạo trang Next.js
+```
+mkdir -p app
+nano app/page.js
+```
+
+```
+export default function Home() {
+  return (
+    <main style={{ padding: "40px", fontFamily: "Arial" }}>
+      <h1>Next.js trên Jetson</h1>
+      <p>Docker đang chạy thành công.</p>
+    </main>
+  );
+}
+```
+
+### Tạo layout:
+```
+nano app/layout.js
+```
+
+```
+export const metadata = {
+  title: "Jetson Next.js",
+};
+
+export default function RootLayout({ children }) {
+  return (
+    <html lang="vi">
+      <body>{children}</body>
+    </html>
+  );
+}
+```
+
+Bước 3: tạo Dockerfile
+```
+nano Dockerfile
+```
+
+```
+FROM node:22-bookworm-slim
+
+WORKDIR /app
+
+COPY package*.json ./
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 3000
+
+CMD ["npm", "run", "start"]
+```
+
+### Bước 4: tạo .dockerignore
+```
+nano .dockerignore
+```
+
+```
+node_modules
+.next
+npm-debug.log
+.git
+```
+
+## Bước 5: build Docker image
+```
+sudo docker build -t nextjs-jetson .
+```
+
+```
+cd ~/nextjs-jetson
+sudo docker build -t nextjs-jetson .
+```
+
+```
+sudo docker run -d \
+  --name nextjs-jetson \
+  --restart unless-stopped \
+  -p 80:3000 \
+  nextjs-jetson
+```
