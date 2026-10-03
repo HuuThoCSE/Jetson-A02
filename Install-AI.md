@@ -70,3 +70,31 @@ Sau khi build xong:
 ```
 ls ~/llama.cpp/build/bin
 ```
+
+
+```
+sudo apt-get update
+sudo apt-get install -y build-essential libgmp-dev libmpfr-dev libmpc-dev
+```
+
+Tải GCC 8.5:
+```
+cd ~
+wget https://ftp.gnu.org/gnu/gcc/gcc-8.5.0/gcc-8.5.0.tar.gz
+tar -xzf gcc-8.5.0.tar.gz
+cd gcc-8.5.0
+./contrib/download_prerequisites
+```
+
+Tạo thư mục build:
+```
+mkdir build
+cd build
+```
+
+Configure:
+```
+../configure \
+  --enable-languages=c,c++ \
+  --disable-multilib
+```
