@@ -98,3 +98,8 @@ Configure:
   --enable-languages=c,c++ \
   --disable-multilib
 ```
+
+Sau đó build. Trên Jetson Nano tôi khuyên:
+```
+make -j2
+```
