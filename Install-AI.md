@@ -86,20 +86,47 @@ cd gcc-8.5.0
 ./contrib/download_prerequisites
 ```
 
-Tạo thư mục build:
 ```
-mkdir build
-cd build
+cd ~/gcc-8.5.0
+rm -rf build-lite
+mkdir build-lite
+cd build-lite
 ```
 
 Configure:
 ```
 ../configure \
   --enable-languages=c,c++ \
-  --disable-multilib
+  --disable-multilib \
+  --disable-bootstrap \
+  --disable-libgomp \
+  --disable-libsanitizer \
+  --disable-libquadmath
+
+sudo make install
+/usr/local/bin/gcc --version
+/usr/local/bin/g++ --version
+```
+
+Tạo thư mục build:
+```
+cd ~/llama.cpp
+rm -rf build
+mkdir build
+cd build
+```
+
+```
+CC=/usr/local/bin/gcc \
+CXX=/usr/local/bin/g++ \
+cmake ..
 ```
 
 Sau đó build. Trên Jetson Nano tôi khuyên:
 ```
 make -j2
+```
+
+```
+sudo make install
 ```
