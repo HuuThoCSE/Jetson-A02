@@ -108,6 +108,23 @@ sudo make install
 /usr/local/bin/g++ --version
 ```
 
+
+```
+cd ~/llama.cpp
+nano CMakeLists.txt
+```
+
+Sửa thành
+```
+project("llama.cpp" C CXX)
+
+if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU" AND CMAKE_CXX_COMPILER_VERSION VERSION_LESS 9)
+    link_libraries(stdc++fs)
+endif()
+
+include(CheckIncludeFileCXX)
+```
+
 Tạo thư mục build:
 ```
 cd ~/llama.cpp
