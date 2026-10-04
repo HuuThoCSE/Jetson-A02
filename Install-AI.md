@@ -119,7 +119,10 @@ cd build
 ```
 CC=/usr/local/bin/gcc \
 CXX=/usr/local/bin/g++ \
-cmake ..
+cmake .. \
+  -DLLAMA_BUILD_TESTS=OFF \
+  -DCMAKE_EXE_LINKER_FLAGS="-lstdc++fs" \
+  -DCMAKE_SHARED_LINKER_FLAGS="-lstdc++fs"
 ```
 
 Sau đó build. Trên Jetson Nano tôi khuyên:
