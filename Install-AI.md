@@ -71,6 +71,18 @@ llama-server \
 ```
 llama-server \
   -hf ggml-org/gemma-3-1b-it-GGUF \
+  --alias gemma \
+  --host 0.0.0.0 \
+  --port 8080 \
+  -c 512 \
+  -t 4 \
+  -ngl 99 \
+  --jinja
+```
+
+```
+llama-server \
+  -hf ggml-org/gemma-3-1b-it-GGUF \
   --host 0.0.0.0 \
   --port 8080 \
   -ngl 99 \
