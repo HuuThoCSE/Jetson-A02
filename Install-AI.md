@@ -8,9 +8,11 @@
 # Cài đặt
 
 Trước tiên kiểm tra kiến trúc và Ubuntu của Nano:
+```
 uname -m
 cat /etc/os-release | head
 free -h
+```
 
 ```
 cd ~
@@ -68,6 +70,13 @@ llama-server \
 
 ## Mở rộng, cài thêm mô hình thinking
 
+Cài mô hình bằng wget
+```
+wget -O Qwen3-1.7B-Q4_K_M.gguf \
+"https://huggingface.co/bartowski/Qwen_Qwen3-1.7B-GGUF/resolve/main/Qwen_Qwen3-1.7B-Q4_K_M.gguf?download=true"
+```
+
+## Bỏ
 ```
 sudo apt update
 sudo apt install -y python3-pip
