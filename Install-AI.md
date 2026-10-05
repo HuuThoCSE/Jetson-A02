@@ -7,6 +7,11 @@
 
 # Cài đặt
 
+Trước tiên kiểm tra kiến trúc và Ubuntu của Nano:
+uname -m
+cat /etc/os-release | head
+free -h
+
 ```
 cd ~
 curl -fsSL https://kreier.github.io/llama.cpp-jetson.nano/install.sh | bash
@@ -59,6 +64,29 @@ llama-server \
   -c 512 \
   -t 4 \
   -ngl 99
+```
+
+## Mở rộng, cài thêm mô hình thinking
+
+```
+sudo apt update
+sudo apt install -y python3-pip
+```
+
+Kiểm tra:
+```
+python3 --version
+pip3 --version
+```
+
+Nếu cả hai hiện phiên bản thì tiếp tục:
+```
+pip3 install -U huggingface_hub
+```
+
+Sau đó thử:
+```
+huggingface-cli --help
 ```
 
 ## Bước 01
