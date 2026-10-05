@@ -25,6 +25,41 @@ wget -O Qwen2.5-0.5B-Instruct-Q4_K_M.gguf \
 https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf
 ```
 
+`-ngl` = number of GPU layers — số layer của model được đưa sang GPU xử lý.
+
+Chạy với CPU
+```
+llama-cli \
+  -m ~/models/Qwen2.5-0.5B-Instruct-Q4_K_M.gguf \
+  -ngl 0 \
+  -c 512 \
+  -t 4 \
+  -n 32 \
+  -p "Xin chào, hãy trả lời bằng tiếng Việt."
+```
+
+
+Chạy với GPU
+```
+llama-cli \
+  -m ~/models/Qwen2.5-0.5B-Instruct-Q4_K_M.gguf \
+  -ngl 99 \
+  -c 512 \
+  -t 4 \
+  -n 64 \
+  -p "Xin chào, hãy trả lời bằng tiếng Việt."
+```
+
+Chạy với server
+```
+llama-server \
+  -m ~/models/Qwen2.5-0.5B-Instruct-Q4_K_M.gguf \
+  --host 0.0.0.0 \
+  --port 8080 \
+  -c 512 \
+  -t 4 \
+  -ngl 99
+```
 
 ## Bước 01
 
