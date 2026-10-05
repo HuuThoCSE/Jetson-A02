@@ -68,6 +68,15 @@ llama-server \
   -ngl 99
 ```
 
+```
+llama-server \
+  -hf ggml-org/gemma-3-1b-it-GGUF \
+  --host 0.0.0.0 \
+  --port 8080 \
+  -ngl 99 \
+  -c 4096
+```
+
 ## Mở rộng, cài thêm mô hình thinking
 
 Cài mô hình bằng wget
