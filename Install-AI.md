@@ -7,6 +7,25 @@
 
 # Cài đặt
 
+```
+cd ~
+curl -fsSL https://kreier.github.io/llama.cpp-jetson.nano/install.sh | bash
+source ~/.bashrc
+
+```
+
+Kiểm tra:
+```
+llama-cli --version
+```
+
+Chạy mô hình
+```
+wget -O Qwen2.5-0.5B-Instruct-Q4_K_M.gguf \
+https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct-GGUF/resolve/main/qwen2.5-0.5b-instruct-q4_k_m.gguf
+```
+
+
 ## Bước 01
 
 ```
