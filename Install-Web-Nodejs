@@ -161,3 +161,9 @@ Updated to new configuration
 
 ## Lưu ý
 - Nếu có lỗi, check DNS coi đã trỏ vào đúng DNS chưa
+
+
+## Cách tắt docker
+```
+sudo docker stop nextjs-jetson
+```
